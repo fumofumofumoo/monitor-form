@@ -100,7 +100,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: #333; b
       <option>アメックス</option>
       <option>VIEW</option>
       <option>楽天カード</option>
-      <option value="other_pay">その他（自由記入）</option>
+      <option value="other_pay">その他</option>
     </select>
     <input id="payMethodOther" type="text" placeholder="購入方法を入力" class="hidden" style="margin-top:8px;" />
   </div>
@@ -129,7 +129,13 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: #333; b
   <div class="row2">
     <div class="field">
       <label>報酬（円）</label>
-      <input id="reward" type="number" placeholder="0" inputmode="numeric" />
+      <input id="reward" type="number" placeholder="0" inputmode="numeric" list="rewardList" />
+      <datalist id="rewardList">
+        <option value="100">
+        <option value="300">
+        <option value="500">
+        <option value="1000">
+      </datalist>
     </div>
     <div class="field">
       <label>定期解約</label>
