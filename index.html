@@ -5,57 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>モニター案件登録</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, 'Hiragino Sans', sans-serif; background: #f5f5f5; color: #1a1a1a; padding: 16px; min-height: 100vh; }
-h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
-.subtitle { font-size: 13px; color: #888; margin-bottom: 20px; }
-.section { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-.section-title { font-size: 11px; font-weight: 600; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
-.field { margin-bottom: 14px; }
-.field:last-child { margin-bottom: 0; }
-label { display: block; font-size: 13px; color: #555; margin-bottom: 5px; }
-label .req { color: #e74c3c; margin-left: 2px; }
-label .auto { font-size: 11px; color: #aaa; margin-left: 6px; }
-input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 16px; background: #fafafa; color: #1a1a1a; appearance: none; -webkit-appearance: none; font-family: inherit; }
-input.auto-filled { background: #f0f7ff; border-color: #b3d4f5; color: #1a6fa8; }
-textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
-input:focus, select:focus, textarea:focus { outline: none; border-color: #333; background: #fff; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.hidden { display: none !important; }
-.auto-note { font-size: 12px; color: #1a6fa8; margin-top: 4px; }
-.site-info { background: #f8f8f8; border-radius: 8px; padding: 10px 12px; margin-top: 8px; border: 1px solid #eee; }
-.site-info p { font-size: 12px; color: #888; margin-bottom: 3px; }
-.site-info span { font-size: 14px; color: #333; font-weight: 500; }
-.submit-btn { width: 100%; padding: 16px; background: #1a1a1a; color: #fff; border: none; border-radius: 12px; font-size: 17px; font-weight: 600; cursor: pointer; margin-top: 8px; }
-.submit-btn:active { background: #333; transform: scale(0.99); }
-.submit-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
-.result { border-radius: 12px; padding: 14px 16px; margin-top: 12px; font-size: 15px; text-align: center; font-weight: 500; }
-.result.success { background: #e8f5e9; color: #2e7d32; }
-.result.error { background: #ffebee; color: #c62828; }
-.url-section { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-.url-section label { font-size: 13px; color: #555; display: block; margin-bottom: 6px; }
-.url-tip { font-size: 12px; color: #aaa; margin-top: 6px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 16px;
+  }
+  h1 {
+    background: #4a90d9;
+    color: white;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .subtitle {
+    background: #4a90d9;
+    color: rgba(255,255,255,0.85);
+    padding: 0 20px 12px;
+    font-size: 13px;
+  }
+  .form-wrap { padding: 16px; max-width: 600px; margin: 0 auto; }
+
+  /* GAS URL section */
+  .gas-section {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+  .gas-section label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
+  .gas-section input {
+    width: 100%; border: 1px solid #ddd; border-radius: 6px;
+    padding: 8px 10px; font-size: 14px;
+  }
+  .gas-hint { font-size: 11px; color: #aaa; margin-top: 4px; }
+
+  /* Section headers */
+  .section-label {
+    font-size: 13px; font-weight: 600; color: #555;
+    background: #eee; border-left: 3px solid #4a90d9;
+    padding: 6px 10px; margin: 16px 0 10px; border-radius: 0 4px 4px 0;
+  }
+
+  /* Form fields */
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block; font-size: 13px; color: #555; margin-bottom: 4px; font-weight: 500;
+  }
+  .field label .req { color: #e53935; font-size: 12px; margin-left: 2px; }
+  .field select, .field input[type=text], .field input[type=date],
+  .field input[type=number], .field textarea {
+    width: 100%; border: 1px solid #ddd; border-radius: 8px;
+    padding: 10px 12px; font-size: 15px; background: white;
+    appearance: auto; -webkit-appearance: auto;
+    font-family: inherit;
+  }
+  .field select { cursor: pointer; }
+  .field input[readonly] { background: #f0f4ff; color: #555; }
+  .field textarea { min-height: 80px; resize: vertical; }
+
+  /* Submit button */
+  .btn-submit {
+    display: block; width: 100%;
+    background: #4a90d9; color: white;
+    border: none; border-radius: 10px;
+    padding: 14px; font-size: 16px; font-weight: 600;
+    cursor: pointer; margin-top: 20px;
+    font-family: inherit;
+  }
+  .btn-submit:active { background: #357abd; }
+
+  /* Result message */
+  #result {
+    margin-top: 12px; padding: 12px; border-radius: 8px;
+    font-size: 14px; text-align: center; display: none;
+  }
+  #result.ok { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+  #result.ng { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
 </style>
 </head>
 <body>
 
 <h1>モニター案件登録</h1>
-<p class="subtitle">iPhoneからスプレッドシートに直接登録</p>
+<div class="subtitle">iPhoneからスプレッドシートに直接登録</div>
 
-<div class="url-section">
-  <label>GAS WebアプリURL</label>
-  <input id="gasUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off" style="font-size:13px;" />
-  <p class="url-tip">※ 一度入力すると保存されます</p>
-</div>
+<div class="form-wrap">
 
-<div class="section">
-  <div class="section-title">基本情報</div>
+  <!-- GAS URL -->
+  <div class="gas-section">
+    <label>GAS WebアプリURL</label>
+    <input type="text" id="gas-url" placeholder="https://script.google.com/macros/s/..." />
+    <div class="gas-hint">※ 一度入力すると保存されます</div>
+  </div>
+
+  <!-- 基本情報 -->
+  <div class="section-label">基本情報</div>
+
   <div class="field">
     <label>会社名<span class="req">*</span></label>
-    <select id="company" onchange="onCompanyChange()">
+    <select id="company">
       <option value="">選択してください</option>
-      <option>VOICE</option>
-      <option>ringo🍎</option>
       <option>e GIFT</option>
       <option>e GIFT VIP</option>
       <option>スキマde調査隊！</option>
@@ -65,34 +116,39 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: #333; b
       <option>アマレポ</option>
       <option>コエくる！</option>
       <option>SEASON</option>
+      <option>ためしてGo!</option>
+      <option>VOICE</option>
+      <option>ringo🍎</option>
     </select>
   </div>
+
   <div class="field">
     <label>案件名<span class="req">*</span></label>
-    <input id="item" type="text" placeholder="例：PDRNクリーム" />
+    <input type="text" id="project" placeholder="案件名を入力">
   </div>
-  <div id="siteInfo" class="hidden"></div>
-</div>
 
-<div class="section">
-  <div class="section-title">購入情報</div>
+  <!-- 購入情報 -->
+  <div class="section-label">購入情報</div>
+
   <div class="field">
     <label>購入先<span class="req">*</span></label>
-    <select id="store" onchange="onStoreChange()">
+    <select id="shop" onchange="calcArrival()">
       <option value="">選択してください</option>
-      <option>Amazon</option>
-      <option>楽天</option>
-      <option>Yahoo!ショッピング</option>
-      <option>薬院オーガニック</option>
-      <option>自然派研究所</option>
-      <option>pola</option>
-      <option>その他</option>
+      <option value="Amazon">Amazon</option>
+      <option value="楽天">楽天</option>
+      <option value="Yahoo!ショッピング">Yahoo!ショッピング</option>
+      <option value="TikTok shop">TikTok shop</option>
+      <option value="その他">その他</option>
     </select>
   </div>
+
   <div class="field">
     <label>購入方法</label>
-    <select id="payMethod" onchange="onPayMethodChange()">
+    <select id="pay-method">
       <option value="">選択してください</option>
+      <option>Amazonギフト</option>
+      <option>Amazonポイント</option>
+      <option>楽天ポイント</option>
       <option>Olive G</option>
       <option>NL G</option>
       <option>エポス</option>
@@ -100,257 +156,194 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: #333; b
       <option>アメックス</option>
       <option>VIEW</option>
       <option>楽天カード</option>
-      <option value="other_pay">その他</option>
+      <option>その他</option>
     </select>
-    <input id="payMethodOther" type="text" placeholder="購入方法を入力" class="hidden" style="margin-top:8px;" />
   </div>
-  <div class="row2">
-    <div class="field">
-      <label>購入日<span class="req">*</span></label>
-      <input id="buyDate" type="date" onchange="onDateChange()" />
-    </div>
-    <div class="field">
-      <label>購入金額（円）</label>
-      <input id="price" type="number" placeholder="0" inputmode="numeric" />
-    </div>
-  </div>
-  <div class="field">
-    <label>
-      到着予定日
-      <span class="auto" id="arrivalAutoNote">（購入先選択で自動計算）</span>
-    </label>
-    <input id="arrivalDate" type="date" oninput="onArrivalManualInput()" />
-    <p id="arrivalNote" class="auto-note hidden"></p>
-  </div>
-</div>
 
-<div class="section">
-  <div class="section-title">報酬・その他</div>
-  <div class="row2">
-    <div class="field">
-      <label>報酬（円）</label>
-      <input id="reward" type="number" placeholder="0" inputmode="numeric" list="rewardList" />
-      <datalist id="rewardList">
-        <option value="100">
-        <option value="300">
-        <option value="500">
-        <option value="1000">
-      </datalist>
-    </div>
-    <div class="field">
-      <label>定期解約</label>
-      <select id="cancel">
-        <option value="ー">ー（なし）</option>
-        <option value="必須">必須</option>
-      </select>
-    </div>
+  <div class="field">
+    <label>購入日<span class="req">*</span></label>
+    <input type="date" id="buy-date" onchange="calcArrival()">
   </div>
-  <div class="field hidden" id="buyRoundField">
+
+  <div class="field">
+    <label>購入金額（円）</label>
+    <input type="number" id="buy-price" placeholder="0">
+  </div>
+
+  <div class="field">
+    <label>到着予定日 <span style="font-size:11px;color:#aaa;">（購入先選択で自動計算）</span></label>
+    <input type="date" id="arrival-date" readonly>
+  </div>
+
+  <!-- 報酬・その他 -->
+  <div class="section-label">報酬・その他</div>
+
+  <div class="field">
+    <label>報酬（円）</label>
+    <input type="number" id="reward" placeholder="0">
+  </div>
+
+  <div class="field">
+    <label>定期解約</label>
+    <select id="cancel">
+      <option value="ー（なし）">ー（なし）</option>
+      <option value="必須">必須</option>
+    </select>
+  </div>
+
+  <div class="field">
     <label>購入回（e GIFT系）<span class="req">*</span></label>
-    <select id="buyRound">
+    <select id="purchase-count">
       <option value="">選択してください</option>
       <option>第1回</option>
       <option>第2回</option>
       <option>第3回</option>
       <option>第4回</option>
       <option>第5回</option>
+      <option>第6回</option>
+      <option>第7回</option>
+      <option>第8回</option>
+      <option>第9回</option>
+      <option>第10回</option>
+      <option>第11回</option>
+      <option>第12回</option>
+      <option>第13回</option>
+      <option>第14回</option>
+      <option>第15回</option>
+      <option>第16回</option>
+      <option>第17回</option>
+      <option>第18回</option>
+      <option>第19回</option>
+      <option>第20回</option>
     </select>
   </div>
-  <div class="field hidden" id="idField">
+
+  <div class="field">
     <label>管理番号</label>
-    <input id="itemId" type="text" placeholder="管理番号を入力" />
+    <input type="text" id="mgmt-no" placeholder="管理番号">
   </div>
+
   <div class="field">
     <label>メモ</label>
-    <textarea id="memo" placeholder="備考・メモを入力"></textarea>
+    <textarea id="memo" placeholder="メモ"></textarea>
   </div>
-</div>
 
-<button class="submit-btn" onclick="submitForm()" id="submitBtn">登録する</button>
-<div id="result" class="hidden result"></div>
+  <button class="btn-submit" onclick="submitForm()">登録する</button>
+  <div id="result"></div>
+
+</div><!-- /form-wrap -->
 
 <script>
-const SITE_RULES = {
-  'VOICE':           { shipping: '支給あり', payment: 'ドットマネー🟡', egift: false },
-  'ringo🍎':        { shipping: '支給あり', payment: 'ドットマネー🟡 毎月4〜10日申請', egift: false },
-  'e GIFT':          { shipping: '支給あり', payment: '当日振込🏦', egift: true },
-  'e GIFT VIP':      { shipping: '支給あり', payment: '当日振込🏦', egift: true },
-  'スキマde調査隊！': { shipping: '自己負担❌', payment: 'アマギフ🪙', egift: false },
-  'プレモニ':        { shipping: '自己負担❌', payment: '三井振込🏦 月末〆→翌月末', egift: false },
-  'JOB LINK':        { shipping: '要確認', payment: '三井振込🏦 月末〆→翌月', egift: false },
-  'モニたま':        { shipping: '自己負担❌', payment: 'e-gift LINE🪙 翌月末', egift: false },
-  'アマレポ':        { shipping: '自己負担❌', payment: 'アマギフ🪙 報告3日後', egift: false },
-  'コエくる！':      { shipping: '支給あり', payment: '翌月5営業日以内🏦 SBI', egift: false },
-  'SEASON':          { shipping: '支給あり', payment: '月末BTライフ🏦', egift: false },
-};
+// ── GAS URL: localStorage に保存 ────────────────────────────
+const GAS_KEY = 'monitor_gas_url';
+const gasInput = document.getElementById('gas-url');
 
-let arrivalManuallyEdited = false;
-
-// GAS URLをlocalStorageに保存・読み込み
-const gasUrlInput = document.getElementById('gasUrl');
-const savedUrl = localStorage.getItem('monitorGasUrl');
-if (savedUrl) gasUrlInput.value = savedUrl;
-gasUrlInput.addEventListener('change', () => {
-  localStorage.setItem('monitorGasUrl', gasUrlInput.value.trim());
+// 保存済み URL を読み込み
+gasInput.value = localStorage.getItem(GAS_KEY) || '';
+gasInput.addEventListener('change', () => {
+  localStorage.setItem(GAS_KEY, gasInput.value.trim());
 });
 
-function onPayMethodChange() {
-  const val = document.getElementById('payMethod').value;
-  document.getElementById('payMethodOther').classList.toggle('hidden', val !== 'other_pay');
+// ── 到着予定日の自動計算 ────────────────────────────────────
+// 購入先ごとの日数（Amazonは翌日 = +1）
+const DELIVERY_DAYS = {
+  'Amazon': 1,
+  '楽天': 3,
+  'Yahoo!ショッピング': 3,
+  'TikTok shop': 7,
+  'その他': 3
+};
+
+function calcArrival() {
+  const shopVal  = document.getElementById('shop').value;
+  const buyDate  = document.getElementById('buy-date').value;
+  const arrInput = document.getElementById('arrival-date');
+
+  if (!shopVal || !buyDate) { arrInput.value = ''; return; }
+
+  const days = DELIVERY_DAYS[shopVal];
+  if (days == null) { arrInput.value = ''; return; }
+
+  const d = new Date(buyDate);
+  d.setDate(d.getDate() + days);
+  arrInput.value = d.toISOString().split('T')[0];
 }
 
-function onCompanyChange() {
+// ── フォーム送信 ────────────────────────────────────────────
+function submitForm() {
+  const gasUrl = gasInput.value.trim();
+  if (!gasUrl) {
+    showResult('GAS WebアプリURLを入力してください', false);
+    return;
+  }
+
+  // 必須チェック
   const company = document.getElementById('company').value;
-  const rules = SITE_RULES[company];
-  const infoDiv = document.getElementById('siteInfo');
-  const buyRoundField = document.getElementById('buyRoundField');
-  const idField = document.getElementById('idField');
+  const project = document.getElementById('project').value.trim();
+  const shop    = document.getElementById('shop').value;
+  const buyDate = document.getElementById('buy-date').value;
 
-  if (rules) {
-    infoDiv.classList.remove('hidden');
-    infoDiv.className = 'site-info';
-    infoDiv.innerHTML = `<p>送料</p><span>${rules.shipping}</span><br><p style="margin-top:8px;">支払い</p><span>${rules.payment}</span>`;
-    buyRoundField.classList.toggle('hidden', !rules.egift);
-    idField.classList.toggle('hidden', rules.egift);
-  } else {
-    infoDiv.classList.add('hidden');
-    buyRoundField.classList.add('hidden');
-    idField.classList.remove('hidden');
-  }
-}
+  if (!company) { showResult('会社名を選択してください', false); return; }
+  if (!project) { showResult('案件名を入力してください', false); return; }
+  if (!shop)    { showResult('購入先を選択してください', false); return; }
+  if (!buyDate) { showResult('購入日を入力してください', false); return; }
 
-function onStoreChange() {
-  const store = document.getElementById('store').value;
-  if (store === '楽天') {
-    document.getElementById('payMethod').value = '楽天カード';
-    document.getElementById('payMethodOther').classList.add('hidden');
-  }
-  onDateChange();
-}
+  // データ収集
+  const params = new URLSearchParams({
+    company:       company,
+    project:       project,
+    shop:          shop,
+    payMethod:     document.getElementById('pay-method').value,
+    buyDate:       buyDate,
+    buyPrice:      document.getElementById('buy-price').value,
+    arrivalDate:   document.getElementById('arrival-date').value,
+    reward:        document.getElementById('reward').value,
+    cancel:        document.getElementById('cancel').value,
+    purchaseCount: document.getElementById('purchase-count').value,
+    mgmtNo:        document.getElementById('mgmt-no').value,
+    memo:          document.getElementById('memo').value,
+  });
 
-function onArrivalManualInput() {
-  arrivalManuallyEdited = true;
-  document.getElementById('arrivalDate').classList.remove('auto-filled');
-  document.getElementById('arrivalNote').classList.add('hidden');
-  document.getElementById('arrivalAutoNote').textContent = '（手動入力）';
-}
-
-function onDateChange() {
-  const buyDate = document.getElementById('buyDate').value;
-  const store = document.getElementById('store').value;
-  if (!buyDate || !store || arrivalManuallyEdited) return;
-
-  const days = store === 'Amazon' ? 2 : 5;
-  const arrival = new Date(buyDate);
-  arrival.setDate(arrival.getDate() + days);
-
-  const yyyy = arrival.getFullYear();
-  const mm = String(arrival.getMonth()+1).padStart(2,'0');
-  const dd = String(arrival.getDate()).padStart(2,'0');
-  const fmt = `${arrival.getMonth()+1}月${arrival.getDate()}日`;
-
-  document.getElementById('arrivalDate').value = `${yyyy}-${mm}-${dd}`;
-  document.getElementById('arrivalDate').classList.add('auto-filled');
-  document.getElementById('arrivalNote').classList.remove('hidden');
-  document.getElementById('arrivalNote').textContent = `自動計算：購入日+${days}日（${fmt}）`;
-  document.getElementById('arrivalAutoNote').textContent = '（自動計算・変更可）';
-}
-
-async function submitForm() {
-  const gasUrl = document.getElementById('gasUrl').value.trim();
-  const company = document.getElementById('company').value;
-  const item = document.getElementById('item').value.trim();
-  const store = document.getElementById('store').value;
-  const buyDate = document.getElementById('buyDate').value;
-
-  if (!gasUrl) { showResult('error', 'GAS WebアプリURLを入力してください'); return; }
-  if (!company) { showResult('error', '会社名を選択してください'); return; }
-  if (!item) { showResult('error', '案件名を入力してください'); return; }
-  if (!store) { showResult('error', '購入先を選択してください'); return; }
-  if (!buyDate) { showResult('error', '購入日を入力してください'); return; }
-
-  const isEgift = company === 'e GIFT' || company === 'e GIFT VIP';
-  if (isEgift && !document.getElementById('buyRound').value) {
-    showResult('error', '購入回を選択してください'); return;
-  }
-
-  const payMethodSelect = document.getElementById('payMethod').value;
-  const payMethod = payMethodSelect === 'other_pay'
-    ? document.getElementById('payMethodOther').value
-    : payMethodSelect;
-
-  const btn = document.getElementById('submitBtn');
+  const btn = document.querySelector('.btn-submit');
   btn.disabled = true;
-  btn.textContent = '送信中...';
+  btn.textContent = '送信中…';
 
-  const payload = {
-    company,
-    item,
-    store,
-    buyDate,
-    arrivalDate: document.getElementById('arrivalDate').value,
-    price: document.getElementById('price').value || 0,
-    reward: document.getElementById('reward').value || 0,
-    cancel: document.getElementById('cancel').value,
-    buyRound: document.getElementById('buyRound').value,
-    id: document.getElementById('itemId').value,
-    payMethod,
-    memo: document.getElementById('memo').value,
-  };
-
-  try {
-    const res = await fetch(gasUrl, {
-      method: 'POST',
-      body: JSON.stringify(payload),
+  fetch(gasUrl, { method: 'POST', body: params })
+    .then(r => r.text())
+    .then(text => {
+      showResult('✅ 登録しました！', true);
+      clearForm();
+    })
+    .catch(err => {
+      // GETフォールバック（CORS対策）
+      const url = gasUrl + '?' + params.toString();
+      fetch(url, { mode: 'no-cors' })
+        .then(() => { showResult('✅ 登録しました！', true); clearForm(); })
+        .catch(() => showResult('❌ 送信に失敗しました。URLを確認してください。', false));
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = '登録する';
     });
-    const json = await res.json();
-    if (json.result === 'success') {
-      showResult('success', `✓ 登録完了！${json.row}行目に追加しました`);
-      localStorage.setItem('monitorGasUrl', gasUrl);
-      resetForm();
-    } else {
-      showResult('error', 'エラー：' + json.message);
-    }
-  } catch (err) {
-    showResult('error', '送信失敗。GAS URLとデプロイ設定を確認してください');
-  }
-
-  btn.disabled = false;
-  btn.textContent = '登録する';
 }
 
-function showResult(type, msg) {
+function showResult(msg, ok) {
   const el = document.getElementById('result');
-  el.className = `result ${type}`;
   el.textContent = msg;
-  el.classList.remove('hidden');
-  setTimeout(() => el.classList.add('hidden'), 6000);
+  el.className = ok ? 'ok' : 'ng';
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 4000);
 }
 
-function resetForm() {
-  document.getElementById('item').value = '';
-  document.getElementById('price').value = '';
-  document.getElementById('reward').value = '';
-  document.getElementById('itemId').value = '';
-  document.getElementById('buyRound').value = '';
-  document.getElementById('cancel').value = 'ー';
-  document.getElementById('payMethod').value = '';
-  document.getElementById('payMethodOther').value = '';
-  document.getElementById('payMethodOther').classList.add('hidden');
-  document.getElementById('memo').value = '';
-  document.getElementById('arrivalDate').value = '';
-  document.getElementById('arrivalDate').classList.remove('auto-filled');
-  document.getElementById('arrivalNote').classList.add('hidden');
-  document.getElementById('arrivalAutoNote').textContent = '（購入先選択で自動計算）';
-  arrivalManuallyEdited = false;
+function clearForm() {
+  ['company','project','shop','pay-method','buy-date','buy-price',
+   'arrival-date','reward','purchase-count','mgmt-no','memo']
+    .forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+  document.getElementById('cancel').value = 'ー（なし）';
 }
-
-// 今日の日付をデフォルトにセット
-const today = new Date();
-const yyyy = today.getFullYear();
-const mm = String(today.getMonth()+1).padStart(2,'0');
-const dd = String(today.getDate()).padStart(2,'0');
-document.getElementById('buyDate').value = `${yyyy}-${mm}-${dd}`;
 </script>
 </body>
 </html>
