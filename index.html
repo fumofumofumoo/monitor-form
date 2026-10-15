@@ -4,280 +4,332 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>モニター案件登録</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="モニター登録">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    font-size: 16px;
-  }
-  h1 {
-    background: #4a90d9;
-    color: white;
-    padding: 16px 20px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .subtitle {
-    background: #4a90d9;
-    color: rgba(255,255,255,0.85);
-    padding: 0 20px 12px;
-    font-size: 13px;
-  }
-  .form-wrap { padding: 16px; max-width: 600px; margin: 0 auto; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple: #7C5CBF;
+  --purple-light: #A07EDE;
+  --pink: #F06292;
+  --orange: #FF8A65;
+  --teal: #4DB6AC;
+  --bg: #EDE7F6;
+  --card: #ffffff;
+  --text: #2d2d2d;
+  --muted: #888;
+  --radius: 18px;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  background: linear-gradient(160deg, #EDE7F6 0%, #E8EAF6 50%, #FCE4EC 100%);
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 40px;
+}
 
-  /* GAS URL section */
-  .gas-section {
-    background: #fff8e1;
-    border: 1px solid #ffe082;
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 16px;
-  }
-  .gas-section label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
-  .gas-section input {
-    width: 100%; border: 1px solid #ddd; border-radius: 6px;
-    padding: 8px 10px; font-size: 14px;
-  }
-  .gas-hint { font-size: 11px; color: #aaa; margin-top: 4px; }
+/* HEADER */
+.header {
+  padding: 48px 20px 20px;
+  text-align: center;
+}
+.header-emoji { font-size: 40px; margin-bottom: 10px; display: block; }
+.header h1 {
+  font-size: 26px; font-weight: 800; color: var(--purple);
+  letter-spacing: -0.5px; margin-bottom: 6px;
+}
+.header p { font-size: 13px; color: var(--muted); }
 
-  /* Section headers */
-  .section-label {
-    font-size: 13px; font-weight: 600; color: #555;
-    background: #eee; border-left: 3px solid #4a90d9;
-    padding: 6px 10px; margin: 16px 0 10px; border-radius: 0 4px 4px 0;
-  }
+/* WRAP */
+.wrap { max-width: 480px; margin: 0 auto; padding: 0 16px; }
 
-  /* Form fields */
-  .field { margin-bottom: 14px; }
-  .field label {
-    display: block; font-size: 13px; color: #555; margin-bottom: 4px; font-weight: 500;
-  }
-  .field label .req { color: #e53935; font-size: 12px; margin-left: 2px; }
-  .field select, .field input[type=text], .field input[type=date],
-  .field input[type=number], .field textarea {
-    width: 100%; border: 1px solid #ddd; border-radius: 8px;
-    padding: 10px 12px; font-size: 15px; background: white;
-    appearance: auto; -webkit-appearance: auto;
-    font-family: inherit;
-  }
-  .field select { cursor: pointer; }
-  .field input[readonly] { background: #f0f4ff; color: #555; }
-  .field textarea { min-height: 80px; resize: vertical; }
+/* SECTION BADGE */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+  margin: 20px 0 10px;
+}
+.badge.purple { background: var(--purple); color: white; }
+.badge.orange { background: var(--orange); color: white; }
+.badge.teal   { background: var(--teal);   color: white; }
 
-  /* Submit button */
-  .btn-submit {
-    display: block; width: 100%;
-    background: #4a90d9; color: white;
-    border: none; border-radius: 10px;
-    padding: 14px; font-size: 16px; font-weight: 600;
-    cursor: pointer; margin-top: 20px;
-    font-family: inherit;
-  }
-  .btn-submit:active { background: #357abd; }
+/* CARD */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(124,92,191,0.10);
+}
 
-  /* Result message */
-  #result {
-    margin-top: 12px; padding: 12px; border-radius: 8px;
-    font-size: 14px; text-align: center; display: none;
-  }
-  #result.ok { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
-  #result.ng { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+/* FIELD */
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+.field label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+.field label .req { color: var(--pink); font-size: 14px; line-height: 1; }
+.field select,
+.field input[type=text],
+.field input[type=date],
+.field input[type=number],
+.field textarea {
+  width: 100%;
+  border: 2px solid #EDE7F6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--text);
+  background: #FAFAFA;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+.field select:focus,
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--purple-light);
+  background: white;
+}
+.field input[readonly] {
+  background: #F3E5F5;
+  color: var(--purple);
+  border-color: #E1BEE7;
+  font-weight: 600;
+}
+.field textarea { resize: vertical; min-height: 80px; }
+
+/* TWO COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* SUBMIT */
+.btn-wrap { padding: 8px 0 4px; }
+.btn-submit {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+  color: white; border: none; border-radius: 16px;
+  padding: 16px; font-size: 17px; font-weight: 800;
+  cursor: pointer; font-family: inherit;
+  box-shadow: 0 6px 20px rgba(124,92,191,0.35);
+  letter-spacing: 0.5px;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.btn-submit:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(124,92,191,0.25);
+}
+
+/* RESULT */
+#result {
+  margin-top: 12px; padding: 14px; border-radius: 14px;
+  font-size: 14px; text-align: center; font-weight: 600;
+  display: none;
+}
+#result.ok { background: #E8F5E9; color: #2E7D32; }
+#result.ng { background: #FFEBEE; color: #C62828; }
+
+/* GAS settings — hidden, accessible via long press on title */
+.gas-hidden {
+  display: none;
+  background: #F3E5F5; border-radius: 14px; padding: 14px; margin-bottom: 12px;
+}
+.gas-hidden.show { display: block; }
+.gas-hidden label { font-size: 11px; color: var(--purple); font-weight: 700; display: block; margin-bottom: 6px; }
+.gas-hidden input {
+  width: 100%; border: 2px solid #CE93D8; border-radius: 10px;
+  padding: 10px 12px; font-size: 13px; background: white; font-family: inherit; outline: none;
+}
+.gas-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.settings-hint { text-align: center; font-size: 11px; color: #bbb; padding: 4px 0 12px; }
 </style>
 </head>
 <body>
 
-<h1>モニター案件登録</h1>
-<div class="subtitle">iPhoneからスプレッドシートに直接登録</div>
+<div class="header">
+  <span class="header-emoji">📋</span>
+  <h1>モニター案件登録</h1>
+  <p>iPhoneからスプレッドシートに直接登録</p>
+</div>
 
-<div class="form-wrap">
+<div class="wrap">
 
-  <!-- GAS URL -->
-  <div class="gas-section">
-    <label>GAS WebアプリURL</label>
-    <input type="text" id="gas-url" placeholder="https://script.google.com/macros/s/..." />
+  <!-- GAS URL (hidden, tap title 3x to show) -->
+  <div class="gas-hidden" id="gas-section">
+    <label>🔧 GAS WebアプリURL</label>
+    <input type="text" id="gas-url" placeholder="https://script.google.com/macros/s/...">
     <div class="gas-hint">※ 一度入力すると保存されます</div>
   </div>
+  <div class="settings-hint" id="settings-hint">タイトルを3回タップで設定を表示</div>
 
   <!-- 基本情報 -->
-  <div class="section-label">基本情報</div>
+  <div class="badge purple">🏢 基本情報</div>
 
-  <div class="field">
-    <label>会社名<span class="req">*</span></label>
-    <select id="company">
-      <option value="">選択してください</option>
-      <option>e GIFT</option>
-      <option>e GIFT VIP</option>
-      <option>スキマde調査隊！</option>
-      <option>プレモニ</option>
-      <option>JOB LINK</option>
-      <option>モニたま</option>
-      <option>アマレポ</option>
-      <option>コエくる！</option>
-      <option>SEASON</option>
-      <option>ためしてGo!</option>
-      <option>VOICE</option>
-      <option>ringo🍎</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label>案件名<span class="req">*</span></label>
-    <input type="text" id="project" placeholder="案件名を入力">
+  <div class="card">
+    <div class="field">
+      <label>会社名 <span class="req">*</span></label>
+      <select id="company">
+        <option value="">選択してください</option>
+        <option>e GIFT</option>
+        <option>e GIFT VIP</option>
+        <option>スキマde調査隊！</option>
+        <option>プレモニ</option>
+        <option>JOB LINK</option>
+        <option>モニたま</option>
+        <option>アマレポ</option>
+        <option>コエくる！</option>
+        <option>SEASON</option>
+        <option>ためしてGo!</option>
+        <option>VOICE</option>
+        <option>ringo🍎</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>案件名 <span class="req">*</span></label>
+      <input type="text" id="project" placeholder="案件名を入力">
+    </div>
   </div>
 
   <!-- 購入情報 -->
-  <div class="section-label">購入情報</div>
+  <div class="badge orange">🛒 購入情報</div>
 
-  <div class="field">
-    <label>購入先<span class="req">*</span></label>
-    <select id="shop" onchange="calcArrival()">
-      <option value="">選択してください</option>
-      <option value="Amazon">Amazon</option>
-      <option value="楽天">楽天</option>
-      <option value="Yahoo!ショッピング">Yahoo!ショッピング</option>
-      <option value="TikTok shop">TikTok shop</option>
-      <option value="その他">その他</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label>購入方法</label>
-    <select id="pay-method">
-      <option value="">選択してください</option>
-      <option>Amazonギフト</option>
-      <option>Amazonポイント</option>
-      <option>楽天ポイント</option>
-      <option>Olive G</option>
-      <option>NL G</option>
-      <option>エポス</option>
-      <option>メルカリ</option>
-      <option>アメックス</option>
-      <option>VIEW</option>
-      <option>楽天カード</option>
-      <option>その他</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label>購入日<span class="req">*</span></label>
-    <input type="date" id="buy-date" onchange="calcArrival()">
-  </div>
-
-  <div class="field">
-    <label>購入金額（円）</label>
-    <input type="number" id="buy-price" placeholder="0">
-  </div>
-
-  <div class="field">
-    <label>到着予定日 <span style="font-size:11px;color:#aaa;">（購入先選択で自動計算）</span></label>
-    <input type="date" id="arrival-date" readonly>
+  <div class="card">
+    <div class="field">
+      <label>購入先 <span class="req">*</span></label>
+      <select id="shop" onchange="calcArrival()">
+        <option value="">選択してください</option>
+        <option value="Amazon">Amazon</option>
+        <option value="楽天">楽天</option>
+        <option value="Yahoo!ショッピング">Yahoo!ショッピング</option>
+        <option value="TikTok shop">TikTok shop</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>購入方法</label>
+      <select id="pay-method">
+        <option value="">選択してください</option>
+        <option>Amazonギフト</option>
+        <option>Amazonポイント</option>
+        <option>楽天ポイント</option>
+        <option>Olive G</option>
+        <option>NL G</option>
+        <option>エポス</option>
+        <option>メルカリ</option>
+        <option>アメックス</option>
+        <option>VIEW</option>
+        <option>楽天カード</option>
+        <option>その他</option>
+      </select>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>購入日 <span class="req">*</span></label>
+        <input type="date" id="buy-date" onchange="calcArrival()">
+      </div>
+      <div class="field">
+        <label>到着予定日</label>
+        <input type="date" id="arrival-date" readonly>
+      </div>
+    </div>
+    <div class="field">
+      <label>購入金額（円）</label>
+      <input type="number" id="buy-price" placeholder="0">
+    </div>
   </div>
 
   <!-- 報酬・その他 -->
-  <div class="section-label">報酬・その他</div>
+  <div class="badge teal">💰 報酬・その他</div>
 
-  <div class="field">
-    <label>報酬（円）</label>
-    <input type="number" id="reward" placeholder="0">
+  <div class="card">
+    <div class="two-col">
+      <div class="field">
+        <label>報酬（円）</label>
+        <input type="number" id="reward" placeholder="0">
+      </div>
+      <div class="field">
+        <label>定期解約</label>
+        <select id="cancel">
+          <option value="ー（なし）">ー（なし）</option>
+          <option value="必須">必須</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>購入回（e GIFT系）</label>
+      <select id="purchase-count">
+        <option value="">選択してください</option>
+        <option>第1回</option><option>第2回</option><option>第3回</option>
+        <option>第4回</option><option>第5回</option><option>第6回</option>
+        <option>第7回</option><option>第8回</option><option>第9回</option>
+        <option>第10回</option><option>第11回</option><option>第12回</option>
+        <option>第13回</option><option>第14回</option><option>第15回</option>
+        <option>第16回</option><option>第17回</option><option>第18回</option>
+        <option>第19回</option><option>第20回</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>管理番号</label>
+      <input type="text" id="mgmt-no" placeholder="管理番号">
+    </div>
+    <div class="field">
+      <label>メモ</label>
+      <textarea id="memo" placeholder="メモ"></textarea>
+    </div>
   </div>
 
-  <div class="field">
-    <label>定期解約</label>
-    <select id="cancel">
-      <option value="ー（なし）">ー（なし）</option>
-      <option value="必須">必須</option>
-    </select>
+  <div class="btn-wrap">
+    <button class="btn-submit" onclick="submitForm()">✨ 登録する</button>
+    <div id="result"></div>
   </div>
 
-  <div class="field">
-    <label>購入回（e GIFT系）<span class="req">*</span></label>
-    <select id="purchase-count">
-      <option value="">選択してください</option>
-      <option>第1回</option>
-      <option>第2回</option>
-      <option>第3回</option>
-      <option>第4回</option>
-      <option>第5回</option>
-      <option>第6回</option>
-      <option>第7回</option>
-      <option>第8回</option>
-      <option>第9回</option>
-      <option>第10回</option>
-      <option>第11回</option>
-      <option>第12回</option>
-      <option>第13回</option>
-      <option>第14回</option>
-      <option>第15回</option>
-      <option>第16回</option>
-      <option>第17回</option>
-      <option>第18回</option>
-      <option>第19回</option>
-      <option>第20回</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label>管理番号</label>
-    <input type="text" id="mgmt-no" placeholder="管理番号">
-  </div>
-
-  <div class="field">
-    <label>メモ</label>
-    <textarea id="memo" placeholder="メモ"></textarea>
-  </div>
-
-  <button class="btn-submit" onclick="submitForm()">登録する</button>
-  <div id="result"></div>
-
-</div><!-- /form-wrap -->
+</div><!-- /wrap -->
 
 <script>
-// ── GAS URL: localStorage に保存 ────────────────────────────
+// ── GAS URL (localStorage) ───────────────────────────────────
 const GAS_KEY = 'monitor_gas_url';
 const gasInput = document.getElementById('gas-url');
-
-// 保存済み URL を読み込み
 gasInput.value = localStorage.getItem(GAS_KEY) || '';
-gasInput.addEventListener('change', () => {
-  localStorage.setItem(GAS_KEY, gasInput.value.trim());
+gasInput.addEventListener('change', () => localStorage.setItem(GAS_KEY, gasInput.value.trim()));
+
+// タイトルを3回タップで設定表示
+let tapCount = 0, tapTimer;
+document.querySelector('.header h1').addEventListener('click', () => {
+  tapCount++;
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => tapCount = 0, 800);
+  if (tapCount >= 3) {
+    tapCount = 0;
+    const s = document.getElementById('gas-section');
+    const h = document.getElementById('settings-hint');
+    s.classList.toggle('show');
+    h.style.display = s.classList.contains('show') ? 'none' : 'block';
+  }
 });
 
-// ── 到着予定日の自動計算 ────────────────────────────────────
-// 購入先ごとの日数（Amazonは翌日 = +1）
-const DELIVERY_DAYS = {
-  'Amazon': 1,
-  '楽天': 3,
-  'Yahoo!ショッピング': 3,
-  'TikTok shop': 7,
-  'その他': 3
-};
-
+// ── 到着予定日 ───────────────────────────────────────────────
+const DELIVERY = { 'Amazon':1, '楽天':3, 'Yahoo!ショッピング':3, 'TikTok shop':7, 'その他':3 };
 function calcArrival() {
-  const shopVal  = document.getElementById('shop').value;
-  const buyDate  = document.getElementById('buy-date').value;
-  const arrInput = document.getElementById('arrival-date');
-
-  if (!shopVal || !buyDate) { arrInput.value = ''; return; }
-
-  const days = DELIVERY_DAYS[shopVal];
-  if (days == null) { arrInput.value = ''; return; }
-
-  const d = new Date(buyDate);
-  d.setDate(d.getDate() + days);
-  arrInput.value = d.toISOString().split('T')[0];
+  const shop = document.getElementById('shop').value;
+  const date = document.getElementById('buy-date').value;
+  const arr  = document.getElementById('arrival-date');
+  if (!shop || !date) { arr.value = ''; return; }
+  const d = new Date(date);
+  d.setDate(d.getDate() + (DELIVERY[shop] || 3));
+  arr.value = d.toISOString().split('T')[0];
 }
 
-// ── フォーム送信 ────────────────────────────────────────────
+// ── 送信 ─────────────────────────────────────────────────────
 function submitForm() {
   const gasUrl = gasInput.value.trim();
-  if (!gasUrl) {
-    showResult('GAS WebアプリURLを入力してください', false);
-    return;
-  }
+  if (!gasUrl) { showResult('⚙️ タイトルを3回タップしてURLを設定してください', false); return; }
 
-  // 必須チェック
   const company = document.getElementById('company').value;
   const project = document.getElementById('project').value.trim();
   const shop    = document.getElementById('shop').value;
@@ -288,13 +340,10 @@ function submitForm() {
   if (!shop)    { showResult('購入先を選択してください', false); return; }
   if (!buyDate) { showResult('購入日を入力してください', false); return; }
 
-  // データ収集
   const params = new URLSearchParams({
-    company:       company,
-    project:       project,
-    shop:          shop,
+    company, project, shop,
     payMethod:     document.getElementById('pay-method').value,
-    buyDate:       buyDate,
+    buyDate,
     buyPrice:      document.getElementById('buy-price').value,
     arrivalDate:   document.getElementById('arrival-date').value,
     reward:        document.getElementById('reward').value,
@@ -305,43 +354,28 @@ function submitForm() {
   });
 
   const btn = document.querySelector('.btn-submit');
-  btn.disabled = true;
-  btn.textContent = '送信中…';
+  btn.disabled = true; btn.textContent = '送信中…';
 
   fetch(gasUrl, { method: 'POST', body: params })
-    .then(r => r.text())
-    .then(text => {
-      showResult('✅ 登録しました！', true);
-      clearForm();
-    })
-    .catch(err => {
-      // GETフォールバック（CORS対策）
-      const url = gasUrl + '?' + params.toString();
-      fetch(url, { mode: 'no-cors' })
+    .then(() => { showResult('✅ 登録しました！', true); clearForm(); })
+    .catch(() =>
+      fetch(gasUrl + '?' + params.toString(), { mode: 'no-cors' })
         .then(() => { showResult('✅ 登録しました！', true); clearForm(); })
-        .catch(() => showResult('❌ 送信に失敗しました。URLを確認してください。', false));
-    })
-    .finally(() => {
-      btn.disabled = false;
-      btn.textContent = '登録する';
-    });
+        .catch(() => showResult('❌ 送信に失敗しました。URLを確認してください。', false))
+    )
+    .finally(() => { btn.disabled = false; btn.textContent = '✨ 登録する'; });
 }
 
 function showResult(msg, ok) {
   const el = document.getElementById('result');
-  el.textContent = msg;
-  el.className = ok ? 'ok' : 'ng';
-  el.style.display = 'block';
+  el.textContent = msg; el.className = ok ? 'ok' : 'ng'; el.style.display = 'block';
   setTimeout(() => el.style.display = 'none', 4000);
 }
 
 function clearForm() {
   ['company','project','shop','pay-method','buy-date','buy-price',
    'arrival-date','reward','purchase-count','mgmt-no','memo']
-    .forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.value = '';
-    });
+    .forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
   document.getElementById('cancel').value = 'ー（なし）';
 }
 </script>
