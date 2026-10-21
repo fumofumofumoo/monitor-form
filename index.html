@@ -108,6 +108,8 @@ body {
 
 /* TWO COL */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.two-col .field input,
+.two-col .field select { min-width: 0; }
 
 /* SUBMIT */
 .btn-wrap { padding: 8px 0 4px; }
@@ -262,7 +264,7 @@ body {
       </div>
     </div>
     <div class="field">
-      <label>購入回数（e GIFT系）</label>
+      <label>購入回（e GIFT系）</label>
       <select id="purchase-count">
         <option value="">選択してください</option>
         <option>第1回</option><option>第2回</option><option>第3回</option>
@@ -295,8 +297,19 @@ body {
 // ── GAS URL (localStorage) ───────────────────────────────────
 const GAS_KEY = 'monitor_gas_url';
 const gasInput = document.getElementById('gas-url');
-gasInput.value = localStorage.getItem(GAS_KEY) || '';
-gasInput.addEventListener('change', () => localStorage.setItem(GAS_KEY, gasInput.value.trim()));
+const savedUrl = localStorage.getItem(GAS_KEY) || '';
+gasInput.value = savedUrl;
+
+// GAS URLが未設定なら自動で設定欄を表示
+if (!savedUrl) {
+  document.getElementById('gas-section').classList.add('show');
+  document.getElementById('settings-hint').style.display = 'none';
+}
+
+// iOS Safariではchangeが発火しないためblurも使う
+function saveGasUrl() { localStorage.setItem(GAS_KEY, gasInput.value.trim()); }
+gasInput.addEventListener('change', saveGasUrl);
+gasInput.addEventListener('blur', saveGasUrl);
 
 // タイトルを3回タップで設定表示
 let tapCount = 0, tapTimer;
