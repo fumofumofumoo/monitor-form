@@ -108,8 +108,9 @@ body {
 
 /* TWO COL */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.two-col .field input,
-.two-col .field select { min-width: 0; }
+.two-col > .field { min-width: 0; overflow: hidden; }
+.two-col > .field input,
+.two-col > .field select { max-width: 100%; }
 
 /* SUBMIT */
 .btn-wrap { padding: 8px 0 4px; }
