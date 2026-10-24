@@ -381,13 +381,18 @@ function submitForm() {
   const btn = document.querySelector('.btn-submit');
   btn.disabled = true; btn.textContent = '送信中…';
 
+  // GASの応答（{result, row} / {result, message}）を確認してから結果を表示する
   fetch(gasUrl, { method: 'POST', body: params })
-    .then(() => { showResult('✅ 登録しました！', true); clearForm(); })
-    .catch(() =>
-      fetch(gasUrl + '?' + params.toString(), { mode: 'no-cors' })
-        .then(() => { showResult('✅ 登録しました！', true); clearForm(); })
-        .catch(() => showResult('❌ 送信に失敗しました。URLを確認してください。', false))
-    )
+    .then(res => res.json())
+    .then(data => {
+      if (data.result === 'success') {
+        showResult(`✅ 登録しました！（${data.row}行目）`, true);
+        clearForm();
+      } else {
+        showResult(`❌ 登録に失敗しました：${data.message || '不明なエラー'}`, false);
+      }
+    })
+    .catch(() => showResult('❌ 送信に失敗しました。URLとGASのデプロイ設定を確認してください。', false))
     .finally(() => { btn.disabled = false; btn.textContent = '✨ 登録する'; });
 }
 
